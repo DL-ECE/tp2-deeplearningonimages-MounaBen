@@ -194,13 +194,15 @@ def normalize_tensor(input_tensor: torch.Tensor) -> torch.Tensor:
 def sigmoid(input_tensor: torch.Tensor) -> torch.Tensor:
     """Apply a sigmoid to the input Tensor"""
     # YOUR CODE HERE
-
+    if (type(input_tensor) != torch.Tensor):
+      input_tensor = torch.from_numpy(input_tensor.astype(np.float32))
     return 1/(1+torch.exp(-input_tensor))
 
 def softmax(input_tensor: torch.Tensor)-> torch.Tensor:
     """Apply a softmax to the input tensor"""
     # YOUR CODE HERE 
-
+    if (type(input_tensor) != torch.Tensor):
+      input_tensor = torch.from_numpy(input_tensor.astype(np.float32))
     expo = torch.exp(input_tensor)
     expo_sum = torch.sum(expo,axis=1).reshape(-1,1)
     return expo / expo_sum
@@ -208,7 +210,8 @@ def softmax(input_tensor: torch.Tensor)-> torch.Tensor:
 def target_to_one_hot(target: torch.Tensor) -> torch.Tensor:
     """Create the one hot representation of the target""" 
     # YOUR CODE HERE 
-    
+    if (type(targets) != torch.Tensor):
+      targets = torch.from_numpy(targets.astype(np.float32))
     one_hot_matrix = torch.zeros((target.shape[0],10))
     
     for i in range(0,target.shape[0]):
