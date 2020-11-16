@@ -577,7 +577,7 @@ display_image(output_image)
 Now let's use pytorch convolution layer to do the forward pass. Use the documentation available at: https://pytorch.org/docs/stable/nn.html
 """
 
-def convolution_forward_numpy(image, kernel):
+def convolution_forward_torch(image, kernel):
 
 
 
