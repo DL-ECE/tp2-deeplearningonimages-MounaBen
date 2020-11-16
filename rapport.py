@@ -574,7 +574,11 @@ display_image(output_image)
 Now let's use pytorch convolution layer to do the forward pass. Use the documentation available at: https://pytorch.org/docs/stable/nn.html
 """
 
+def convolution_forward_numpy(image, kernel):
 
+
+
+  pass
 
 """In pytorch you can also access other layer like convolution2D, pooling layers, for example in the following cell use the __torch.nn.MaxPool2d__ to redduce the image size."""
 
@@ -600,6 +604,7 @@ if __name__ == "__main__" :
   fmnist_val = DataLoader(fmnist_val, batch_size=32, num_workers=4,  pin_memory=True)
 
 """Display the 10 image from train set and 10 images from validation set, print their ground truth"""
+
 fmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())
 fmnist_train = DataLoader(fmnist_train, batch_size=32, num_workers=4, pin_memory=True)
 fmnist_val = FashionMNIST(os.getcwd(), train=False, download=True, transform=transforms.ToTensor())
