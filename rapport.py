@@ -564,7 +564,7 @@ def display_image(img):
     plt.imshow(img)
 
 # display the image
-display_image(image)
+    display_image(image)
 
 
 # Do the convolution operation and display the resulting image
