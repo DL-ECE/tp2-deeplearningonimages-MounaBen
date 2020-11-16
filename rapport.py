@@ -667,22 +667,22 @@ class CNNModel(nn.Module):
         super().__init__()
         # YOUR CODE HERE 
         self.layer1 = nn.Sequential(
-            nn.Conv2d(1, 32, kernel_size=5, stride=1, padding=2),
+            nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2))
         
         self.layer2 = nn.Sequential(
-            nn.Conv2d(32, 64, kernel_size=5, stride=1, padding=2),
+            nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2))
         
         self.layer3 = nn.Sequential(
-            nn.Conv2d(64, 128, kernel_size=5, stride=1, padding=2),
+            nn.Conv2d(64, 128, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2))
         
         self.layer4 = nn.Sequential(
-            nn.Conv2d(128, 256, kernel_size=5, stride=1, padding=2),
+            nn.Conv2d(128, 256, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2))
 
@@ -773,7 +773,12 @@ if __name__ == "__main__":
       print(f"Result Test dataset {eval_result}")
 
 """## Open Analysis
-Same as TP 1 please write a short description of your experiment
+Pour créer mon réseau de neuronne de convolution, j'ai suivi les conseils donnés dans la consigne. Tout en m'aidant d'internet, j'ai crée 4 couches de réseau convolutionnel en 2D en leur donnant différents paramètres. Tout d'abord, pour la première couche, je lui donne une entrée en channel et la couche suivante prend en entrée les layers précedentes.
+Ensuite, nous utilisons la fonction Droppout pour pour garantir que les pixels adjacents sont tous à 0 ou tous actifs.
+Quant à la fonction flatten, elle renvoie une copie du tableau réduite en une seule dimension.
+Puis, nous connectons nos 3 couches pour qu'elles ainsi produire 10 étiquettes. 
+Dans notre forward, nous nous contentons d'appeler toutes les fonctions.
+Avec cela, nous obtenons une accuracy de 99% avec un learning rate à 0,001 et un minibatch_size = 100 et un nepoch de 6.
 
 # BONUS 
 
