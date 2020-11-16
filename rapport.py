@@ -95,7 +95,7 @@ def build_image_like_tensor(n_rows:int, n_colums: int, n_channels:int, default_v
      It should be containing the default value set by default_value
   """
   # YOUR CODE HERE
-  tensor = np.full((n_rows,n_colums,n_channels),default_value)
+  tensor = np.full((n_rows,n_colums,n_channels),value=default_value)
   
   return tensor
   
@@ -246,17 +246,17 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(mnist_data, mnist_target, test_size=0.33, random_state=1342)
     # Change the input data to be normalize and target data to be correctly encoded 
 
-    X_train = normalize_tensor(X_train)
     X_train = torch.from_numpy(X_train.astype(np.float32))
-
-    X_test = normalize_tensor(X_test)
+    X_train = normalize_tensor(X_train)
+    
     X_test = torch.from_numpy(X_test.astype(np.float32))
+    X_test = normalize_tensor(X_test)
 
+    y_train = torch.from_numpy(y_train.astype(np.int32))
     y_train = target_to_one_hot(y_train)
-    y_train = torch.from_numpy(y_train.numpy()).long()
-
+    
+    y_test = torch.from_numpy(y_test.astype(np.int32))
     y_test = target_to_one_hot(y_test)
-    y_test = torch.from_numpy(y_test.numpy()).long()
 
 """Your remember the famous `class FFNN` from **TP1** ?? 
 
