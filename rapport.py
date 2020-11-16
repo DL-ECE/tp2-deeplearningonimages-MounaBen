@@ -95,7 +95,7 @@ def build_image_like_tensor(n_rows:int, n_colums: int, n_channels:int, default_v
      It should be containing the default value set by default_value
   """
   # YOUR CODE HERE
-  tensor = np.full((n_rows,n_colums,n_channels),value=default_value)
+  tensor = np.full((n_rows,n_colums,n_channels),default_value)
   
   return tensor
   
