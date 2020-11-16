@@ -490,8 +490,7 @@ $ K = \begin{bmatrix}a & b & c \\d & e & f \\ g& h& i\end{bmatrix}$
 We are considering padding with 0 and using the SAME convolution. 
 Meaning that arround the I matrix consider there is the value 0.
 
-Tips: the result of the convolution is a 5x5 matrix
-"""
+Tips: the result of the convolution is a 5x5 matrix"""
 
 I = np.array([[252,  49, 113,  11, 137],
                 [ 18, 237, 163, 119,  53],
@@ -577,7 +576,7 @@ display_image(output_image)
 Now let's use pytorch convolution layer to do the forward pass. Use the documentation available at: https://pytorch.org/docs/stable/nn.html
 """
 
-def convolution_forward_torch(image, kernel):
+def convolution_forward_numpy(image, kernel):
 
 
 
@@ -611,7 +610,7 @@ if __name__ == "__main__" :
 fmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())
 fmnist_train = DataLoader(fmnist_train, batch_size=32, num_workers=4, pin_memory=True)
 fmnist_val = FashionMNIST(os.getcwd(), train=False, download=True, transform=transforms.ToTensor())
-fmnist_val = DataLoader(fmnist_val, batch_size=32, num_workers=4,  pin_memory=True)
+fmnist_val = DataLoader(fmnist_val, batch_size=32, num_worrskers=4,  pin_memory=True)
 
 def display_10_images(dataset):
     for i in range(0,10):
