@@ -564,12 +564,9 @@ def display_image(img):
     plt.imshow(img)
 
 # display the image
-    display_image(image)
-
+display_image(image)
 
 # Do the convolution operation and display the resulting image
-
-
 # YOUR CODE HERE
 output_image = np.zeros((image.shape))
 for i in range(image.shape[2]):
@@ -777,7 +774,7 @@ Use some already trained CNN to segment YOUR image.
 In the cell below your can load a image to the notebook and use the given network to have the segmentation mask and plot it.
 """
 
-if __name__ = "__main__" :
+if __name__ == "__main__" :
     
     # TODO HERE: Upload an image to the notebook in the navigation bar on the left
     # `File` `Load File`and load an image to the notebook. 
