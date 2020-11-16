@@ -564,17 +564,17 @@ def display_image(img):
     plt.imshow(img)
 
 # display the image
-display_image(image)
+    display_image(image)
 
 
 # Do the convolution operation and display the resulting image
 
 
 # YOUR CODE HERE
-output_image = np.zeros((image.shape))
-for i in range(image.shape[2]):
-    output_image[:,:,i] = convolution_forward_numpy(image[:,:,i], K_0)
-display_image(output_image)
+    output_image = np.zeros((image.shape))
+    for i in range(image.shape[2]):
+        output_image[:,:,i] = convolution_forward_numpy(image[:,:,i], K_0)
+    display_image(output_image)
 
 """## 3) Computation using __pytorch__
 
